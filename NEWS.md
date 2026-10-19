@@ -1,4 +1,4 @@
-# capesR 0.2.1 (development version)
+# capesR 0.2.1
 
 * `search_capes_text()` accepts several terms and several fields (#5,
   hugoavmedeiros/capesR). A row is kept when any of the terms occurs in any of
