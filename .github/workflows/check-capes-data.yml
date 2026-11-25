@@ -44,8 +44,15 @@ jobs:
         run: |
           set +e
           python3 data-raw/check_capes_updates.py > diff.md
-          echo "changed=$?" >> "$GITHUB_OUTPUT"
+          rc=$?
           cat diff.md
+          # 0 = no changes, 1 = changes; anything else (2 = portal unreachable,
+          # or a crash) fails the job instead of opening an empty issue.
+          if [ "$rc" -gt 1 ] || { [ "$rc" -eq 1 ] && [ ! -s diff.md ]; }; then
+            echo "::error::check_capes_updates.py failed (exit $rc) without a diff"
+            exit 1
+          fi
+          echo "changed=$rc" >> "$GITHUB_OUTPUT"
 
       - name: Open issue if there are new or revised files
         if: steps.diff.outputs.changed == '1'
