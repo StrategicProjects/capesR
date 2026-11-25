@@ -24,6 +24,31 @@ A `data.frame` containing the combined and filtered data.
 \description{
 This function combines data from multiple Parquet files and applies optional filters, including text-based searches.
 }
+\section{Columns}{
+
+The yearly files have one row per thesis or dissertation and the columns
+below (names in Portuguese, as in the CAPES source):
+\describe{
+  \item{ano_base}{Reference year.}
+  \item{ies}{Higher education institution.}
+  \item{area}{Evaluation area (*área de avaliação*).}
+  \item{nome_programa}{Graduate program.}
+  \item{tipo}{Type of work (e.g. master's dissertation, doctoral thesis).}
+  \item{titulo, resumo}{Title and abstract.}
+  \item{idioma}{Language of the work.}
+  \item{autoria, orientacao}{Author and advisor.}
+  \item{regiao, uf}{Region and state of the institution.}
+  \item{grande_area, cd_grande_area}{Broad knowledge area (*grande área de
+    conhecimento*): name and CAPES code.}
+  \item{area_conhecimento, cd_area_conhecimento}{Knowledge area: name and code.}
+  \item{subarea, cd_subarea}{Knowledge subarea: name and code (2013 onwards).}
+  \item{especialidade, cd_especialidade}{Specialty: name and code (2013 onwards).}
+  \item{area_concentracao}{Concentration area of the program (2013 onwards).}
+}
+The codes are stored as text. CAPES does not publish subarea, specialty and
+concentration area for 1987-2012, so those columns are `NA` in these years.
+}
+
 \examples{
 \donttest{
 # Download data for the years 1987 and 1990

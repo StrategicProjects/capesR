@@ -1,8 +1,8 @@
 Type: Package
 Package: capesR
 Title: Access to CAPES Data
-Version: 0.2.1
-Date: 2026-09-19
+Version: 0.3.0
+Date: 2026-11-25
 Authors@R: c(
             person("André", "Leite", email = "leite@castlab.org", role = c("aut", "cre"),
                    comment = c(ORCID = "0000-0002-4718-9766")),
@@ -14,9 +14,11 @@ Authors@R: c(
 Description: Provides simplified access to the data from the Catalog of Theses and Dissertations 
     of the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES, <https://catalogodeteses.capes.gov.br>) 
     for the years 1987 through 2024. The dataset includes variables such as Higher Education 
-    Institution (institution), Area of Concentration (area), Graduate Program Name (program_name), 
+    Institution (institution), Evaluation Area (area), Graduate Program Name (program_name), 
     Type of Work (type), Language of Work (language), Author Identification (author), Abstract 
-    (abstract), Advisor Identification (advisor), Development Region (region), State (state).
+    (abstract), Advisor Identification (advisor), Development Region (region), State (state),
+    and the CAPES knowledge-area classification (broad area, area, subarea and specialty, with
+    their codes).
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true

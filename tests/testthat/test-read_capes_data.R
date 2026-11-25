@@ -28,3 +28,22 @@ test_that("NA in the text column never matches", {
 test_that("unknown filter columns are rejected", {
   expect_error(read_capes_data(f, filters = list(foo = 1)), "foo")
 })
+
+test_that("an outdated local file is not reused by download_capes_data()", {
+  dest <- tempfile("capes")
+  dir.create(dest)
+  stale <- file.path(dest, "capes_1987.parquet")
+  writeLines("not the current file", stale)
+  # an unreachable mirror: the download fails, and the stale file must not be returned
+  mirror <- paste0("file://", tempfile("no-such-mirror"))
+  msgs <- character()
+  res <- suppressWarnings(withCallingHandlers(
+    download_capes_data(1987, destination = dest, base_url = mirror),
+    message = function(m) {
+      msgs <<- c(msgs, conditionMessage(m))
+      invokeRestart("muffleMessage")
+    }
+  ))
+  expect_true(any(grepl("differs from the current data", msgs)))
+  expect_length(res, 0)
+})

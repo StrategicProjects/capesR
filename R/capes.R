@@ -80,6 +80,29 @@ text_match <- function(data, terms, fields, match = c("any", "all")) {
 #'
 #' This function combines data from multiple Parquet files and applies optional filters, including text-based searches.
 #'
+#' @section Columns:
+#' The yearly files have one row per thesis or dissertation and the columns
+#' below (names in Portuguese, as in the CAPES source):
+#' \describe{
+#'   \item{ano_base}{Reference year.}
+#'   \item{ies}{Higher education institution.}
+#'   \item{area}{Evaluation area (*área de avaliação*).}
+#'   \item{nome_programa}{Graduate program.}
+#'   \item{tipo}{Type of work (e.g. master's dissertation, doctoral thesis).}
+#'   \item{titulo, resumo}{Title and abstract.}
+#'   \item{idioma}{Language of the work.}
+#'   \item{autoria, orientacao}{Author and advisor.}
+#'   \item{regiao, uf}{Region and state of the institution.}
+#'   \item{grande_area, cd_grande_area}{Broad knowledge area (*grande área de
+#'     conhecimento*): name and CAPES code.}
+#'   \item{area_conhecimento, cd_area_conhecimento}{Knowledge area: name and code.}
+#'   \item{subarea, cd_subarea}{Knowledge subarea: name and code (2013 onwards).}
+#'   \item{especialidade, cd_especialidade}{Specialty: name and code (2013 onwards).}
+#'   \item{area_concentracao}{Concentration area of the program (2013 onwards).}
+#' }
+#' The codes are stored as text. CAPES does not publish subarea, specialty and
+#' concentration area for 1987-2012, so those columns are `NA` in these years.
+#'
 #' @param files A vector or list of paths to Parquet files.
 #' @param filters A named list of filters. Values for the text columns `titulo` and
 #'   `resumo` (or `title`/`abstract`) are matched as case-insensitive substrings,
@@ -235,6 +258,11 @@ buscar_texto_capes <- search_capes_text
 #' Dissertations for the selected years. The file list and download URLs come
 #' from [capes_years].
 #'
+#' A file already present in `destination` is reused only when its size matches
+#' the one recorded in [capes_years]; otherwise (for instance, a file downloaded
+#' with an earlier version of the package, which had fewer columns) it is
+#' downloaded again.
+#'
 #' @param years A vector with the desired years (1987-2024).
 #' @param destination The directory where the files will be saved (default: temporary directory).
 #' @param timeout The timeout in seconds for the download process (default: 120 seconds).
@@ -295,11 +323,15 @@ download_capes_data <- function(years, destination = tempdir(), timeout = 120,
     year <- as.character(selected$year[i])
     file_destination <- file.path(destination, selected$file[i])
 
-    # Check if the file already exists
+    # Reuse an existing file only if it is the current version of the data
     if (file.exists(file_destination)) {
-      message("File already exists: ", file_destination)
-      downloaded_files[[year]] <- file_destination
-      next
+      if (is.na(selected$bytes[i]) || file.size(file_destination) == selected$bytes[i]) {
+        message("File already exists: ", file_destination)
+        downloaded_files[[year]] <- file_destination
+        next
+      }
+      message("Existing file for year ", year, " differs from the current data ",
+              "(older version or incomplete); downloading it again.")
     }
 
     url <- if (is.null(base_url)) {
@@ -334,6 +366,8 @@ download_capes_data <- function(years, destination = tempdir(), timeout = 120,
       next
     }
 
+    # file.rename() does not overwrite on Windows
+    unlink(file_destination)
     file.rename(part, file_destination)
     downloaded_files[[year]] <- file_destination
   }

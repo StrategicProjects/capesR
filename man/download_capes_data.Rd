@@ -38,6 +38,12 @@ Downloads the yearly Parquet files of the CAPES Catalog of Theses and
 Dissertations for the selected years. The file list and download URLs come
 from [capes_years].
 }
+\details{
+A file already present in `destination` is reused only when its size matches
+the one recorded in [capes_years]; otherwise (for instance, a file downloaded
+with an earlier version of the package, which had fewer columns) it is
+downloaded again.
+}
 \examples{
 \donttest{
 # Download data for the years 1987 and 1990

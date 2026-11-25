@@ -3,6 +3,7 @@
 .RData
 .Ruserdata
 /dados_parquet
+/dados_parquet_v2
 inst/doc
 /doc/
 /doc/*.R
@@ -16,5 +17,6 @@ CLAUDE.md
 .claude/
 .env
 /dados_raw
+/dados_xlsx
 .CLAUDE.md.building
 .CLAUDE.local.md.building

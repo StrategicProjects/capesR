@@ -23,10 +23,13 @@ library(capesR)
 
 The **capesR** package was developed to facilitate access and manipulation of data from the Catalog of Theses and Dissertations of the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES). This catalog includes information on theses and dissertations defended at higher education institutions in Brazil, with variables such as:
 
-- **institution**: Higher Education Institution.
-- **area**: Academic field of the work.
-- **region** and **state**: Location where the research was conducted.
-- **abstract**: Brief description of the topic and objectives.
+- **institution** (`ies`): Higher Education Institution.
+- **area** (`area`): Evaluation area of the graduate program.
+- **knowledge areas** (`grande_area`, `area_conhecimento`, `subarea`, `especialidade`, each with its CAPES code in `cd_*`, and `area_concentracao`): the CAPES classification of the work. Subarea, specialty and concentration area are only published for 2013 onwards.
+- **region** and **state** (`regiao`, `uf`): Location of the institution.
+- **abstract** (`resumo`): Brief description of the topic and objectives.
+
+The full list of columns is in `?read_capes_data`.
 
 This package automates the process of obtaining and organizing this data, making it easily accessible for analysis and reporting.
 

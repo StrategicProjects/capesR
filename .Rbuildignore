@@ -8,6 +8,7 @@
 ^pkgdown$
 ^data-raw$
 ^dados_parquet$
+^dados_parquet_v2$
 ^cran-comments\.md$
 ^CRAN-SUBMISSION$
 ^CLAUDE\.md$
@@ -16,4 +17,5 @@
 ^README\.Rmd$
 ^\.env$
 ^dados_raw$
+^dados_xlsx$
 ^\.CLAUDE.*\.building$
