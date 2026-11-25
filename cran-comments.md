@@ -5,18 +5,18 @@
 Checked locally on macOS (R 4.6.0), including the \donttest{} examples that
 download data.
 
-## Changes in this release (0.2.1)
+## Changes in this release (0.3.0)
 
-* URL and BugReports moved to <https://github.com/StrategicProjects/capesR>.
-  The repository used in 0.2.0 (<https://github.com/milkway/capesR>) was a
-  temporary home kept online as a pointer to the new one; the new repository
-  also holds the full history of the original hugoavmedeiros/capesR
-  repository.
-* `search_capes_text()` accepts several terms and several fields; the new
-  `match = "all"` argument requires every term instead of any. The
-  `read_capes_data()` text filters (`titulo`, `resumo`) also accept a vector
-  of terms.
-* When nothing matches, `search_capes_text()` returns an empty `data.frame`
-  with the same columns as the input.
-* Added unit tests (testthat, in Suggests).
-* Added ORCID identifiers for the authors.
+* The yearly data files gain nine columns with the CAPES knowledge-area
+  classification (names and codes), requested by users. The 12 existing
+  columns keep their names and position; `area` now has the same meaning
+  (evaluation area) in every year, which is described in NEWS as a breaking
+  change in the data for 1987-2012.
+* The files were rebuilt from the XLSX files of the CAPES open data portal and
+  are served from a new folder of the same data repository, so earlier
+  versions of the package keep working with the files they expect.
+* `download_capes_data()` downloads a file again when the copy found in
+  `destination` does not have the expected size (e.g. a file saved by an
+  earlier version of the package).
+* Examples that download data remain in \donttest{} and write only to
+  `tempdir()`.
