@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">capesR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +33,18 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.2.1" id="capesr-021-development-version">capesR 0.2.1 (development version)<a class="anchor" aria-label="anchor" href="#capesr-021-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.3.0" id="capesr-030">capesR 0.3.0<a class="anchor" aria-label="anchor" href="#capesr-030"></a></h2>
+<ul><li>New columns with the CAPES knowledge-area classification, names and codes: <code>grande_area</code>, <code>cd_grande_area</code>, <code>area_conhecimento</code>, <code>cd_area_conhecimento</code>, <code>subarea</code>, <code>cd_subarea</code>, <code>especialidade</code>, <code>cd_especialidade</code> and <code>area_concentracao</code> (<a href="https://github.com/StrategicProjects/capesR/issues/9" class="external-link">#9</a>). The 12 existing columns keep their names and position. CAPES does not publish subarea, specialty and concentration area for 1987-2012, so these are <code>NA</code> in those years. The columns are documented in <code><a href="../reference/read_capes_data.html">?read_capes_data</a></code>.</li>
+<li>
+<strong>Breaking change in the data:</strong> <code>area</code> is now the evaluation area (<em>área de avaliação</em>) in every year. In the files for 1987-2012 it used to hold the knowledge area, unlike 2013 onwards; that value is now in <code>area_conhecimento</code>. Code that filters <code>area</code> for years up to 2012 will get different results.</li>
+<li>All years were rebuilt from the XLSX files of the CAPES open data portal. Curly quotes, dashes and similar characters that were stored as invisible control characters in the titles and abstracts of 2013, 2019 and 2021-2024 are now correct.</li>
+<li>2017, 2018 and 2020 now follow the files CAPES revised in August 2024: 15 more records (4 in 2017, 11 in 2018), and typographic quotes and dashes in titles and abstracts replaced by their plain equivalents, as in the source.</li>
+<li>The new files are served from a separate folder of the data repository, so earlier versions of the package keep working with the files they expect.</li>
+<li>
+<code><a href="../reference/download_capes_data.html">download_capes_data()</a></code> downloads a file again when the copy found in <code>destination</code> does not have the expected size, e.g. a file saved by an earlier version of the package. Previously any existing file was reused.</li>
+</ul></div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.1" id="capesr-021">capesR 0.2.1<a class="anchor" aria-label="anchor" href="#capesr-021"></a></h2><p class="text-muted">CRAN release: 2026-10-20</p>
 <ul><li>
 <code><a href="../reference/search_capes_text.html">search_capes_text()</a></code> accepts several terms and several fields (<a href="https://github.com/StrategicProjects/capesR/issues/5" class="external-link">#5</a>, hugoavmedeiros/capesR). A row is kept when any of the terms occurs in any of the fields, e.g. <code>search_capes_text(data, c("varicela", "catapora"), c("titulo", "resumo"))</code>; the new <code>match = "all"</code> argument requires every term instead. Previously a vector in <code>term</code> raised an error.</li>
 <li>
@@ -43,7 +54,7 @@
 <li>Repository moved to <a href="https://github.com/StrategicProjects/capesR" class="external-link uri">https://github.com/StrategicProjects/capesR</a>, which now also holds the history of the original hugoavmedeiros/capesR repository.</li>
 </ul></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.2.0" id="capesr-020">capesR 0.2.0<a class="anchor" aria-label="anchor" href="#capesr-020"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.2.0" id="capesr-020">capesR 0.2.0<a class="anchor" aria-label="anchor" href="#capesr-020"></a></h2><p class="text-muted">CRAN release: 2026-09-20</p>
 <ul><li>Data updated from the CAPES open data portal: years 2023 and 2024 added, and 2019, 2021 and 2022 replaced by the revised files CAPES published in 2025 (institution names in those files now use <code>(CAMPUS)</code> instead of <code>( CAMPUS )</code>). The package now covers 1987 through 2024.</li>
 <li>André Leite is now the package maintainer (previously Hugo Vasconcelos Medeiros).</li>
 <li>Data hosting moved off OSF. The yearly Parquet files are now listed in the new <code>capes_years</code> dataset (year, file, url, bytes, md5), which replaces <code>years_osf</code>. <code><a href="../reference/download_capes_data.html">download_capes_data()</a></code> reads the URL from that table, so the host can change without touching the code.</li>

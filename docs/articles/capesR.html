@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">capesR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,16 +77,27 @@ theses and dissertations defended at higher education institutions in
 Brazil, with variables such as:</p>
 <ul>
 <li>
-<strong>institution</strong>: Higher Education Institution.</li>
+<strong>institution</strong> (<code>ies</code>): Higher Education
+Institution.</li>
 <li>
-<strong>area</strong>: Academic field of the work.</li>
+<strong>area</strong> (<code>area</code>): Evaluation area of the
+graduate program.</li>
 <li>
-<strong>region</strong> and <strong>state</strong>: Location where
-the research was conducted.</li>
+<strong>knowledge areas</strong> (<code>grande_area</code>,
+<code>area_conhecimento</code>, <code>subarea</code>,
+<code>especialidade</code>, each with its CAPES code in
+<code>cd_*</code>, and <code>area_concentracao</code>): the CAPES
+classification of the work. Subarea, specialty and concentration area
+are only published for 2013 onwards.</li>
 <li>
-<strong>abstract</strong>: Brief description of the topic and
-objectives.</li>
+<strong>region</strong> and <strong>state</strong>
+(<code>regiao</code>, <code>uf</code>): Location of the
+institution.</li>
+<li>
+<strong>abstract</strong> (<code>resumo</code>): Brief description
+of the topic and objectives.</li>
 </ul>
+<p>The full list of columns is in <code><a href="../reference/read_capes_data.html">?read_capes_data</a></code>.</p>
 <p>This package automates the process of obtaining and organizing this
 data, making it easily accessible for analysis and reporting.</p>
 <p>The original CAPES data is available at <a href="https://dadosabertos.capes.gov.br/group/catalogo-de-teses-e-dissertacoes-brasil" class="external-link">dadosabertos.capes.gov.br</a>.</p>

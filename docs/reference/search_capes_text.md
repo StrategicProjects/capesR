@@ -46,8 +46,8 @@ message.
 # \donttest{
 # Download data for the years 1987 and 1990
 capes_files <- download_capes_data(c(1987, 1990))
-#> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmp20sdxv/capes_1987.parquet
-#> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmp20sdxv/capes_1990.parquet
+#> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpsIBZXJ/capes_1987.parquet
+#> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpsIBZXJ/capes_1990.parquet
 # Combine all selected data
 combined_data <- read_capes_data(capes_files)
 # Titles mentioning "Educação"

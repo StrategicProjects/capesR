@@ -1,9 +1,9 @@
-pandoc: 3.10.1
+pandoc: '3.11'
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   capesR: capesR.html
-last_built: 2026-09-19T13:25Z
+last_built: 2026-11-25T13:09Z
 urls:
   reference: https://strategicprojects.github.io/capesR/reference
   article: https://strategicprojects.github.io/capesR/articles

@@ -49,13 +49,20 @@ baixar_dados_capes(
 A named list (by year) of file paths for the downloaded or already
 existing files.
 
+## Details
+
+A file already present in \`destination\` is reused only when its size
+matches the one recorded in \[capes_years\]; otherwise (for instance, a
+file downloaded with an earlier version of the package, which had fewer
+columns) it is downloaded again.
+
 ## Examples
 
 ``` r
 # \donttest{
 # Download data for the years 1987 and 1990
 capes_files <- download_capes_data(c(1987, 1990))
-#> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmp20sdxv/capes_1987.parquet
-#> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmp20sdxv/capes_1990.parquet
+#> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpsIBZXJ/capes_1987.parquet
+#> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpsIBZXJ/capes_1990.parquet
 # }
 ```

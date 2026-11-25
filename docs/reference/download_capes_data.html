@@ -11,7 +11,7 @@ from [capes_years]."><meta property="og:image" content="https://strategicproject
 
     <a class="navbar-brand me-2" href="../index.html">capesR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,14 +86,21 @@ the `url` column of [capes_years] is used.</p></dd>
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A named list (by year) of file paths for the downloaded or already existing files.</p>
     </div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>A file already present in `destination` is reused only when its size matches
+the one recorded in [capes_years]; otherwise (for instance, a file downloaded
+with an earlier version of the package, which had fewer columns) it is
+downloaded again.</p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Download data for the years 1987 and 1990</span></span></span>
 <span class="r-in"><span><span class="va">capes_files</span> <span class="op">&lt;-</span> <span class="fu">download_capes_data</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1987</span>, <span class="fl">1990</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmp20sdxv/capes_1987.parquet</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmp20sdxv/capes_1990.parquet</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpsIBZXJ/capes_1987.parquet</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Downloading: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpsIBZXJ/capes_1990.parquet</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

@@ -16,8 +16,8 @@
 <script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Access to CAPES Data">
-<meta name="description" content="Provides simplified access to the data from the Catalog of Theses and Dissertations of the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES, &lt;https://catalogodeteses.capes.gov.br&gt;) for the years 1987 through 2024. The dataset includes variables such as Higher Education Institution (institution), Area of Concentration (area), Graduate Program Name (program_name), Type of Work (type), Language of Work (language), Author Identification (author), Abstract (abstract), Advisor Identification (advisor), Development Region (region), State (state).">
-<meta property="og:description" content="Provides simplified access to the data from the Catalog of Theses and Dissertations of the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES, &lt;https://catalogodeteses.capes.gov.br&gt;) for the years 1987 through 2024. The dataset includes variables such as Higher Education Institution (institution), Area of Concentration (area), Graduate Program Name (program_name), Type of Work (type), Language of Work (language), Author Identification (author), Abstract (abstract), Advisor Identification (advisor), Development Region (region), State (state).">
+<meta name="description" content="Provides simplified access to the data from the Catalog of Theses and Dissertations of the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES, &lt;https://catalogodeteses.capes.gov.br&gt;) for the years 1987 through 2024. The dataset includes variables such as Higher Education Institution (institution), Evaluation Area (area), Graduate Program Name (program_name), Type of Work (type), Language of Work (language), Author Identification (author), Abstract (abstract), Advisor Identification (advisor), Development Region (region), State (state), and the CAPES knowledge-area classification (broad area, area, subarea and specialty, with their codes).">
+<meta property="og:description" content="Provides simplified access to the data from the Catalog of Theses and Dissertations of the Brazilian Coordination for the Improvement of Higher Education Personnel (CAPES, &lt;https://catalogodeteses.capes.gov.br&gt;) for the years 1987 through 2024. The dataset includes variables such as Higher Education Institution (institution), Evaluation Area (area), Graduate Program Name (program_name), Type of Work (type), Language of Work (language), Author Identification (author), Abstract (abstract), Advisor Identification (advisor), Development Region (region), State (state), and the CAPES knowledge-area classification (broad area, area, subarea and specialty, with their codes).">
 <meta property="og:image" content="https://strategicprojects.github.io/capesR/logo.png">
 <!-- See https://stackoverflow.com/questions/1865837/whats-the-difference-between-window-location-and-window-location-replace — we use .replace() because we don't want the old url to appear in the browser history. --><script>
   if (!/(\/|html?)$/.test(window.location.href)){
@@ -33,7 +33,7 @@
 
     <a class="navbar-brand me-2" href="index.html">capesR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -292,9 +292,9 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>André Leite <br><small class="roles"> Author, maintainer </small>   </li>
-<li>Hugo Vasconcelos Medeiros <br><small class="roles"> Author </small>   </li>
-<li>Dalson Figueiredo Filho <br><small class="roles"> Author </small>   </li>
+<li>André Leite <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-4718-9766" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Hugo Vasconcelos Medeiros <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-6249-0920" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Dalson Figueiredo Filho <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-6982-2262" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 </ul>
 </div>
 

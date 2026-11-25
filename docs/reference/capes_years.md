@@ -52,18 +52,18 @@ head(capes_years)
 #> 4 1990 capes_1990.parquet
 #> 5 1991 capes_1991.parquet
 #> 6 1992 capes_1992.parquet
-#>                                                                            url
-#> 1 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/capes_1987.parquet
-#> 2 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/capes_1988.parquet
-#> 3 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/capes_1989.parquet
-#> 4 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/capes_1990.parquet
-#> 5 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/capes_1991.parquet
-#> 6 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/capes_1992.parquet
+#>                                                                               url
+#> 1 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/v2/capes_1987.parquet
+#> 2 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/v2/capes_1988.parquet
+#> 3 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/v2/capes_1989.parquet
+#> 4 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/v2/capes_1990.parquet
+#> 5 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/v2/capes_1991.parquet
+#> 6 https://huggingface.co/datasets/mlkwy/capesR/resolve/main/v2/capes_1992.parquet
 #>     bytes                              md5
-#> 1 2652675 24c7d0b2f3fec82ffb3717ed1edbd9b7
-#> 2 2578151 6dcfe91ed596c8f80f469bc1f8809a62
-#> 3 3071802 bb49104e68e737791af00a819a4b2b64
-#> 4 3648890 6d734111246c38edba0bdf7ab07e1ce4
-#> 5 4671563 ddb1ed0c95914861913e03fa9eb339e7
-#> 6 5236593 f7f9e70d1f1a9825968116e2fef1e1f2
+#> 1 2619409 2da5c81287fd6d80d34b5611cb1cd722
+#> 2 2545749 b9523b36d89668478f630c414c4d9c54
+#> 3 3031718 6a2b620f9b08e006b3651207a92c52d7
+#> 4 3603034 ee1ec12a10f962f48673cdabde61340c
+#> 5 4607703 d7d59725bdec8ba532d57a8cb1ddf388
+#> 6 5164955 5c56ac881b2485d85c837baf42339bdd
 ```

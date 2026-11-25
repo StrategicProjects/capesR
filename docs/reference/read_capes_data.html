@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">capesR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,14 +64,66 @@ exactly (e.g., `list(ano_base = 1987, uf = "SP", titulo = "educação")`).</p></
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>A `data.frame` containing the combined and filtered data.</p>
     </div>
+    <div class="section level2">
+    <h2 id="columns">Columns<a class="anchor" aria-label="anchor" href="#columns"></a></h2>
+
+
+<p>The yearly files have one row per thesis or dissertation and the columns
+below (names in Portuguese, as in the CAPES source):</p><dl><dt>ano_base</dt>
+<dd><p>Reference year.</p></dd>
+
+  <dt>ies</dt>
+<dd><p>Higher education institution.</p></dd>
+
+  <dt>area</dt>
+<dd><p>Evaluation area (*área de avaliação*).</p></dd>
+
+  <dt>nome_programa</dt>
+<dd><p>Graduate program.</p></dd>
+
+  <dt>tipo</dt>
+<dd><p>Type of work (e.g. master's dissertation, doctoral thesis).</p></dd>
+
+  <dt>titulo, resumo</dt>
+<dd><p>Title and abstract.</p></dd>
+
+  <dt>idioma</dt>
+<dd><p>Language of the work.</p></dd>
+
+  <dt>autoria, orientacao</dt>
+<dd><p>Author and advisor.</p></dd>
+
+  <dt>regiao, uf</dt>
+<dd><p>Region and state of the institution.</p></dd>
+
+  <dt>grande_area, cd_grande_area</dt>
+<dd><p>Broad knowledge area (*grande área de
+    conhecimento*): name and CAPES code.</p></dd>
+
+  <dt>area_conhecimento, cd_area_conhecimento</dt>
+<dd><p>Knowledge area: name and code.</p></dd>
+
+  <dt>subarea, cd_subarea</dt>
+<dd><p>Knowledge subarea: name and code (2013 onwards).</p></dd>
+
+  <dt>especialidade, cd_especialidade</dt>
+<dd><p>Specialty: name and code (2013 onwards).</p></dd>
+
+  <dt>area_concentracao</dt>
+<dd><p>Concentration area of the program (2013 onwards).</p></dd>
+
+
+</dl><p>The codes are stored as text. CAPES does not publish subarea, specialty and
+concentration area for 1987-2012, so those columns are `NA` in these years.</p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># Download data for the years 1987 and 1990</span></span></span>
 <span class="r-in"><span><span class="va">capes_files</span> <span class="op">&lt;-</span> <span class="fu"><a href="download_capes_data.html">download_capes_data</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1987</span>, <span class="fl">1990</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmp20sdxv/capes_1987.parquet</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//Rtmp20sdxv/capes_1990.parquet</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpsIBZXJ/capes_1987.parquet</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> File already exists: /var/folders/j9/7g_srh2x0d71c5q0pbj5mxh40000gn/T//RtmpsIBZXJ/capes_1990.parquet</span>
 <span class="r-in"><span><span class="co"># Combine all selected data</span></span></span>
 <span class="r-in"><span><span class="va">combined_data</span> <span class="op">&lt;-</span> <span class="fu">read_capes_data</span><span class="op">(</span><span class="va">capes_files</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
